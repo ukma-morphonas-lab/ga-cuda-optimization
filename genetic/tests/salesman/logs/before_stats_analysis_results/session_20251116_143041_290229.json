@@ -1,0 +1,41 @@
+{
+    "session_start_time": "2025-11-16T14:30:36.956190",
+    "session_end_time": "2025-11-16T14:30:41.289601",
+    "session_duration": 4.333411,
+    "environment_info": {
+        "python_version": "3.11.12",
+        "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+        "cpu_count": 12,
+        "memory_total": 7,
+        "memory_available": 5,
+        "memory_used_percent": 24.3,
+        "gpu_count": 1,
+        "gpu_name": "NVIDIA GeForce RTX 2050",
+        "gpu_memory_total": 3,
+        "gpu_memory_available": 3,
+        "gpu_memory_used_percent": 0.0
+    },
+    "total_tests_run": 1,
+    "tests_passed": 1,
+    "tests_failed": 0,
+    "test_results": [
+        {
+            "test_name": "test_salesman_simple_ga[True-10]",
+            "test_parameters": {
+                "generations": 20,
+                "population_size": 100,
+                "tournamentSize": 5,
+                "mutationRate": 0.1,
+                "fit_selection_rate": 0.5,
+                "gpu_enabled": true
+            },
+            "test_start_time": "2025-11-16T14:30:36.956974",
+            "test_end_time": "2025-11-16T14:30:41.288935",
+            "test_duration": 4.331961,
+            "test_result": "passed",
+            "test_output": "Graph size: 10 cities\nBest path: [0, 2, 9, 5, 7, 1, 4, 3, 6, 8, 0]\nPath cost: 2558.22998046875\nTotal fitness computation time: 4.2597 seconds\nTotal fitness calls: 2020\nAverage time per fitness call: 0.002109 seconds",
+            "test_error": "",
+            "test_traceback": ""
+        }
+    ]
+}

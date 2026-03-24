@@ -1,0 +1,55 @@
+"The text is formatted using computer technology with 1.5 line spacing with a letter height of at least 2.5 mm (for example, a Word text editor, font size - 14). "
+"The structural elements "Table of Contents", "Introduction", "Conclusions", "List of References", "Appendices" are not numbered, and their names serve as headings of structural elements."
+Sections and subsections must have headings. Underlining, word hyphenation and periods at the end of headings are not allowed.
+Headings of structural elements are located in the middle of the line symmetrically relative to the right and left margins (except for section headings).
+Section headings are located with a paragraph indent with a serial number according to the content of the work, are written in capital letters.
+The headings of the sections begin with a paragraph indent, have a serial number according to the content and are written in capital letters from the first heading. If the heading consists of more than one sentence, a period is placed between them.
+It is not allowed to place headings at the bottom of the sheet if there is only one line of text after the heading.
+3.1.1 Headings
+The names of the components of the text or sections are written in the form of headings. Headings must be short and correspond to the topic of the presented material. Word wrapping in headings is not allowed. A period is not placed at the end of headings. If the heading consists of two or more sentences, then they are separated by a period. The distance between the heading and the text is 3 intervals, between headings - 1.5 intervals (Figure 3.1).
+It is not allowed to leave the heading without text on the previous page.
+All headings of the manual are written in lowercase letters starting from the paragraph, starting with a capital letter, except for the table of contents and appendices, which are written in the middle of the line.
+
+3.1.2 Numbering
+The title page is the first page of the manual, which is not numbered.
+On other pages, the serial number is indicated in the upper right corner.
+The headings of the sections of the main part, subsections, items, sub-items, etc. are numbered sequentially in Arabic numerals. The subsection number includes the section number and the serial number of the subsection, separated by a period. At the end of the number, a period is not put, but one character is omitted. Paragraphs, sub-items are numbered similarly (Figure 3.1).
+The numbers indicating the number should not extend beyond the paragraph.
+Figures, tables and formulas are numbered sequentially in Arabic numerals within the section or appendices (for details, see paragraph 3.7.1).
+The text of the document may contain a list, which is recommended to be numbered in lowercase letters of the Ukrainian alphabet with a parenthesis or to be highlighted with a hyphen before the text. For further detailing of the list, Arabic numerals with a parenthesis are used.
+Each part of the list is written in a paragraph, starting with a lowercase letter and ending with a semicolon, at the end of the latter a period is put.
+Example:
+
+a) the text of the list.................................................................................
+and its continuation;
+b) the text of the list:
+1) the text of the list of further detail...........................................
+and its continuation;
+2) . . . ;
+c) the last list.
+If it is necessary to explain the information in the text, table, illustration, it is allowed to place notes immediately after them, starting with the paragraph with the word “Note - ” or “Notes ”.
+One note is not numbered and a dash is put after the word “Note”. The text of the note begins on the same line with a capital letter and continues without a paragraph. If there are several notes, then nothing is put after the word “Notes”, but each note from the paragraph is written, numbered in order with Arabic numerals. A period is not put after the number. The text of the note begins with a capital letter and continues without a paragraph. A period is put after each note.
+Note - The text of the notes is allowed to be printed with one interval.
+Notes
+1 Text of the first note and its continuation.
+2 Text of the second note and its continuation.
+
+3.1.3 Rules for writing the text
+When writing the text, the following rules should be observed:
+a) the text must be presented in a well-founded manner in a concise technical style;
+b) the conventional letter designations of physical quantities and the conventional graphic designations of components must comply with those established in the standards;
+c) numbers with dimensions should be written in numbers, and without dimensions in words (distance - 2 mm, measure three times);
+d) unit designations should be written in a line with a numerical value without transferring to the next line. A space should be made between the last digit of the number and the unit designation;
+e) if a series of numerical values ​​of the same physical quantity is given, then the unit of the physical quantity is indicated only after the last numerical value (1.5; 1.75; 2 mm);
+e) designations of quantities with limit deviations should be written as follows: 100 ± 5 mm;
+g) letter designations of units included in the product are separated by a dot on the middle line (·); the division sign is replaced by a slash (/);
+i) ordinal numerals should be written in numbers with case endings (9th day, 4th line); with several ordinal numerals, the case endingThe following are written after the last one (3rd, 4th, 5th graphs); quantitative numerals are written without case endings (on 20 sheets); do not write endings in dates (October 21) and with Roman numerals (XXI century);
+k) abbreviations of words in the text are not allowed, except for those generally accepted in the Ukrainian language and established in the GOST 2.316-68 standard, as well as abbreviations that are accepted for inscriptions on the product (in the text they must be highlighted in large font: ON, OFF), and if the inscription consists of numbers or signs, then in quotes. Quotes also highlight the names of commands, modes, signals (“Start”);
+l) it is not allowed:
+- to allow professional or local words and expressions (technicalities);
+- to write the word “month” after the name of the month (not “in May months”, but “in May”);
+- use the expressions: “this year”, “last year”, you should write a specific date “in June 2008”;
+- use the designation of units of physical quantities without numbers, you should write in full: “a few kilograms” (except for the design of tables and formulas);
+- connect the text with the conventional designation of physical quantities using mathematical symbols (not “speed = 5 km/h”, but “speed is 5 km/h”, not “temperature is - 5° C”, but “temperature is minus 5° C”);
+- use mathematical symbols <,>, o, №, %, sin, cos, tg, log, etc. without digital or letter symbols. In the text, you should write the words “zero”, “number”, “logarithm”, etc.;
+- use standard indices (DSTU, STP) without a registration number.

@@ -1,0 +1,263 @@
+{
+  "session_start_time": "2025-12-18T11:38:40.182878",
+  "session_end_time": "2025-12-18T11:39:44.195291",
+  "session_duration": 64.012413,
+  "environment_info": {
+    "python_version": "3.11.12",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "cpu_count": 12,
+    "memory_total": 7,
+    "memory_available": 4,
+    "memory_used_percent": 43.3,
+    "gpu_count": 1,
+    "gpu_name": "NVIDIA GeForce RTX 2050",
+    "gpu_memory_total": 3,
+    "gpu_memory_available": 3,
+    "gpu_memory_used_percent": 0.0
+  },
+  "total_tests_run": 12,
+  "tests_passed": 12,
+  "tests_failed": 0,
+  "test_results": [
+    {
+      "test_name": "test_xor_ga_pop_10_gens_20",
+      "test_start_time": "2025-12-18T11:38:40.408814",
+      "test_parameters": {
+        "population_size": 10,
+        "generations": 20,
+        "mutation_rate": 0.1,
+        "gene_length": 2,
+        "gpu_enabled": true
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-18T11:38:41.508274",
+      "test_extra_info": {
+        "best_weights": "[0.4711783  1.57334913]"
+      },
+      "test_duration": 1.09946
+    },
+    {
+      "test_name": "test_xor_ga_pop_10_gens_20",
+      "test_start_time": "2025-12-18T11:38:41.509761",
+      "test_parameters": {
+        "population_size": 10,
+        "generations": 20,
+        "mutation_rate": 0.1,
+        "gene_length": 2,
+        "gpu_enabled": false
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-18T11:38:41.516110",
+      "test_extra_info": {
+        "best_weights": "[-2.5398511   0.87193026]"
+      },
+      "test_duration": 0.006349
+    },
+    {
+      "test_name": "test_xor_ga_pop_50_gens_50",
+      "test_start_time": "2025-12-18T11:38:41.517480",
+      "test_parameters": {
+        "population_size": 50,
+        "generations": 50,
+        "mutation_rate": 0.1,
+        "gene_length": 2,
+        "gpu_enabled": true
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-18T11:38:41.611470",
+      "test_extra_info": {
+        "best_weights": "[1.39315027 0.38839468]"
+      },
+      "test_duration": 0.09399
+    },
+    {
+      "test_name": "test_xor_ga_pop_50_gens_50",
+      "test_start_time": "2025-12-18T11:38:41.612577",
+      "test_parameters": {
+        "population_size": 50,
+        "generations": 50,
+        "mutation_rate": 0.1,
+        "gene_length": 2,
+        "gpu_enabled": false
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-18T11:38:41.639719",
+      "test_extra_info": {
+        "best_weights": "[1.27470668 3.03405311]"
+      },
+      "test_duration": 0.027142
+    },
+    {
+      "test_name": "test_xor_ga_pop_100_gens_100",
+      "test_start_time": "2025-12-18T11:38:41.641086",
+      "test_parameters": {
+        "population_size": 100,
+        "generations": 100,
+        "mutation_rate": 0.1,
+        "gene_length": 2,
+        "gpu_enabled": true
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-18T11:38:41.810687",
+      "test_extra_info": {
+        "best_weights": "[1.94850671 1.52505959]"
+      },
+      "test_duration": 0.169601
+    },
+    {
+      "test_name": "test_xor_ga_pop_100_gens_100",
+      "test_start_time": "2025-12-18T11:38:41.811784",
+      "test_parameters": {
+        "population_size": 100,
+        "generations": 100,
+        "mutation_rate": 0.1,
+        "gene_length": 2,
+        "gpu_enabled": false
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-18T11:38:41.914400",
+      "test_extra_info": {
+        "best_weights": "[0.03675661 4.09678748]"
+      },
+      "test_duration": 0.102616
+    },
+    {
+      "test_name": "test_xor_ga_pop_500_gens_200",
+      "test_start_time": "2025-12-18T11:38:41.915507",
+      "test_parameters": {
+        "population_size": 500,
+        "generations": 200,
+        "mutation_rate": 0.1,
+        "gene_length": 2,
+        "gpu_enabled": true
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-18T11:38:42.564667",
+      "test_extra_info": {
+        "best_weights": "[0.61093126 0.99189006]"
+      },
+      "test_duration": 0.64916
+    },
+    {
+      "test_name": "test_xor_ga_pop_500_gens_200",
+      "test_start_time": "2025-12-18T11:38:42.566063",
+      "test_parameters": {
+        "population_size": 500,
+        "generations": 200,
+        "mutation_rate": 0.1,
+        "gene_length": 2,
+        "gpu_enabled": false
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-18T11:38:43.728257",
+      "test_extra_info": {
+        "best_weights": "[-0.66760664  0.27865627]"
+      },
+      "test_duration": 1.162194
+    },
+    {
+      "test_name": "test_xor_ga_pop_1000_gens_1000",
+      "test_start_time": "2025-12-18T11:38:43.730808",
+      "test_parameters": {
+        "population_size": 1000,
+        "generations": 1000,
+        "mutation_rate": 0.1,
+        "gene_length": 2,
+        "gpu_enabled": true
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-18T11:38:51.117063",
+      "test_extra_info": {
+        "best_weights": "[-0.65350656  0.38409832]"
+      },
+      "test_duration": 7.386255
+    },
+    {
+      "test_name": "test_xor_ga_pop_1000_gens_1000",
+      "test_start_time": "2025-12-18T11:38:51.118608",
+      "test_parameters": {
+        "population_size": 1000,
+        "generations": 1000,
+        "mutation_rate": 0.1,
+        "gene_length": 2,
+        "gpu_enabled": false
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-18T11:39:04.337114",
+      "test_extra_info": {
+        "best_weights": "[ 0.73274702 -0.92084739]"
+      },
+      "test_duration": 13.218506
+    },
+    {
+      "test_name": "test_xor_ga_pop_1000_gens_2000",
+      "test_start_time": "2025-12-18T11:39:04.338168",
+      "test_parameters": {
+        "population_size": 1000,
+        "generations": 2000,
+        "mutation_rate": 0.1,
+        "gene_length": 2,
+        "gpu_enabled": true
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-18T11:39:19.932318",
+      "test_extra_info": {
+        "best_weights": "[-0.68790044  0.03902931]"
+      },
+      "test_duration": 15.59415
+    },
+    {
+      "test_name": "test_xor_ga_pop_1000_gens_2000",
+      "test_start_time": "2025-12-18T11:39:19.933509",
+      "test_parameters": {
+        "population_size": 1000,
+        "generations": 2000,
+        "mutation_rate": 0.1,
+        "gene_length": 2,
+        "gpu_enabled": false
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-18T11:39:44.194739",
+      "test_extra_info": {
+        "best_weights": "[-0.4196603   0.02040365]"
+      },
+      "test_duration": 24.26123
+    }
+  ]
+}

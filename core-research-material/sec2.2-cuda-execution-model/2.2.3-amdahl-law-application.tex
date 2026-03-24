@@ -1,0 +1,47 @@
+\documentclass[a4paper,14pt]{extarticle}
+\usepackage{styles}
+
+\begin{document}
+
+\litSubsubsection{2.2.3 Expected Speedup Bounds from Amdahl's Law Application}
+
+Amdahl's Law (1967) predicts the maximum speedup when parallelizing a program~\cite{amdahl1967validity}. For a program where fraction $P$ is parallelizable and $S = (1-P)$ is sequential, the speedup with $N$ processors is:
+
+\begin{equation}
+\text{Speedup}(N) = \frac{1}{(1-P) + \frac{P}{N}}
+\label{eq:amdahl}
+\end{equation}
+
+As $N \rightarrow \infty$, the maximum speedup converges to $1/S$. For GAs, the parallel fraction depends on the problem. Assuming fitness evaluation dominates:
+
+\begin{center}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+$P$ (parallel) & $S$ (sequential) & $\text{Speedup}_{\max}$ & Speedup ($N=1000$) \\
+\midrule
+0.90 & 0.10 & $10\times$ & $9.9\times$ \\
+0.95 & 0.05 & $20\times$ & $19.6\times$ \\
+0.99 & 0.01 & $100\times$ & $91.0\times$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+GPU acceleration introduces additional overheads (transfer, kernel launch):
+
+\begin{equation}
+\text{Speedup}_{\text{GPU}} = \frac{T_{\text{CPU}}}{T_{\text{sequential}} + T_{\text{parallel}}/N + T_{\text{transfer}} + T_{\text{launch}}}
+\label{eq:gpu_speedup}
+\end{equation}
+
+These overheads are significant for small problems, explaining why GPU acceleration requires sufficient population sizes~\cite{mei2024comprehensive,wang2023gpu}.
+
+\textbf{Breakeven Condition.} GPU acceleration provides net benefit when the time saved by parallelization exceeds the overhead introduced:
+
+\begin{equation}
+P \cdot T_{\text{CPU}} \left(1 - \frac{1}{N}\right) > T_{\text{transfer}} + T_{\text{launch}}
+\label{eq:breakeven}
+\end{equation}
+
+The left side is the CPU time saved by running the parallel fraction on $N$ GPU threads instead of sequentially. When this exceeds transfer and launch costs, GPU acceleration is worthwhile. This defines a minimum population size threshold, empirically validated in Section 3.
+
+\end{document}

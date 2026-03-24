@@ -1,0 +1,32 @@
+\documentclass[14pt,a4paper]{extarticle}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{setspace}
+\usepackage{geometry}
+
+\geometry{
+    left=25mm,
+    right=15mm,
+    top=20mm,
+    bottom=20mm
+}
+
+\setstretch{1.5}
+
+\begin{document}
+
+\section*{Hypothesis: CUDA-Based Parallelization in Genetic Algorithms}
+
+The application of CUDA technology to parallelize computations in genetic algorithms 
+will enable significant acceleration of key operations: fitness function evaluation, 
+selection, crossover, and mutation - compared to sequential implementation on the CPU. 
+It is expected that parallelization efficiency will increase proportionally to population 
+size and computational complexity of the fitness function, providing a substantial reduction in execution time for these operations, with speedup magnitude depending on population size and fitness function complexity.
+
+\bigskip Parallel processing of large populations on the GPU is expected to improve the quality of 
+solutions found, due to enabling operation with significantly larger population sizes without 
+a critical increase in overall algorithm execution time. This is crucial for opening up new 
+possibilities to solve complex optimization problems in acceptable timeframes.
+
+\end{document}

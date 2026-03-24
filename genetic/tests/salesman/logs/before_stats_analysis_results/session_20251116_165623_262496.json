@@ -1,0 +1,37 @@
+{
+  "session_start_time": "2025-11-16T16:56:23.259837",
+  "session_end_time": "2025-11-16T16:56:23.262492",
+  "session_duration": 0.002655,
+  "environment_info": {
+    "python_version": "3.11.12",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "cpu_count": 1,
+    "memory_total": 0,
+    "memory_available": 0,
+    "memory_used_percent": 0.0,
+    "gpu_count": 0,
+    "gpu_name": "N/A",
+    "gpu_memory_total": 0,
+    "gpu_memory_available": 0,
+    "gpu_memory_used_percent": 0.0
+  },
+  "total_tests_run": 1,
+  "tests_passed": 1,
+  "tests_failed": 0,
+  "test_results": [
+    {
+      "test_name": "test_example",
+      "test_start_time": "2025-11-16T16:56:23.262407",
+      "test_parameters": {
+        "param1": "value1",
+        "param2": 42
+      },
+      "test_output": "This is test output",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-11-16T16:56:23.262445",
+      "test_duration": 3.8e-05
+    }
+  ]
+}

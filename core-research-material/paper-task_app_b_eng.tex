@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[ukrainian]{babel}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{array}
+\usepackage{enumitem}
+
+\pagestyle{empty}
+
+\begin{document}
+\fontsize{12}{14}\selectfont
+
+\begin{flushright}
+Додаток Б
+\end{flushright}
+
+\begin{center}
+\underline{Національний університет «Києво-Могилянська академія»}
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent Факультет {інформатики\hspace{10.3cm}}
+\vspace{0.3cm}
+
+\noindent Кафедра {комп'ютерних наук\hspace{9.3cm}}
+\vspace{0.3cm}
+
+\noindent Освітній ступінь {бакалавр\hspace{9.6cm}}
+\vspace{0.3cm}
+
+\noindent Спеціальність {122 Комп'ютерні науки\hspace{7.5cm}}
+\vspace{0.3cm}
+
+\noindent Освітня/освітньо-наукова програма {Комп'ютерні науки\hspace{8.6cm}}
+\vspace{0.3cm}
+
+\begin{flushright}
+\begin{tabular}{l}
+\textbf{ЗАТВЕРДЖУЮ} \\[0.3cm]
+Завідувач кафедри Нагірна Алла Миколаївна \\[0.5cm]
+«\rule{0.8cm}{0.4pt}» \rule{3cm}{0.4pt} 20\rule{0.8cm}{0.4pt} року
+\end{tabular}
+\end{flushright}
+
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{З А В Д А Н Н Я}
+
+\textbf{ДЛЯ КУРСОВОЇ РОБОТИ СТУДЕНТУ}
+
+\vspace{0.3cm}
+
+{Алексєєнко Анастасії Дмитрівні\hspace{2.5cm}}
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent 1. Тема роботи {Оптимізація обчислень генетичних алгоритмів
+\noindent {через паралельну обробку за допомогою CUDA\hspace{12.8cm}}
+
+\vspace{0.5cm}
+\noindent керівник роботи {Медвідь Сергій Олександрович, старший викладач\hspace{1cm}}
+
+\vspace{0.5cm}
+\noindent затверджені наказом вищого навчального закладу від «\rule{0.6cm}{0.4pt}» \rule{2.5cm}{0.4pt} 20\rule{0.6cm}{0.4pt} року № \rule{1.5cm}{0.4pt}}
+
+\vspace{0.2cm}
+
+\noindent 2. Строк подання студентом роботи \underline{до 24 березня 2026 року\hspace{1.5cm}}
+
+\vspace{0.2cm}
+
+\noindent 3. План роботи
+
+\vspace{0.3cm}
+
+\small
+\begin{enumerate}[label=\arabic*., leftmargin=*, itemsep=0.1cm]
+\item {Introduction}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item General hypothesis on CUDA acceleration of genetic algorithm fitness evaluation.
+    \item Research motivation.
+\end{itemize}
+
+\item {Theoretical Background}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item \textit{Literature Review:}
+    \begin{itemize}[noitemsep]
+        \item GPU-CPU architectures for GA parallelization.
+        \item CUDA model suitability for GA-specific computations.
+        \item Prior GPU-GA studies on fitness evaluation speedups.
+        \item Implementation challenges and scalability limits.
+    \end{itemize}
+    \item \textit{Theoretical Framework:}
+    \begin{itemize}[noitemsep]
+        \item Parallel fitness evaluation kernel design principles.
+        \item Compute-communication tradeoff modeling.
+        \item Expected speedup bounds from Amdahl's law application.
+    \end{itemize}
+    \item \textit{Methodology:}
+    \begin{itemize}[noitemsep]
+        \item CUDA tools for Python.
+        \item Benchmark configurations for typical optimization problems.
+        \item Profiling tools and performance metrics definition.
+    \end{itemize}
+\end{itemize}
+
+\item {Practical and Experimental Part}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item System architecture and components.
+    \item Implementation of parallel computations using CUDA.
+    \item GPU memory usage optimization.
+\end{itemize}
+
+\item {Results and Conclusions}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Analysis of experimental results.
+    \item CPU vs GPU implementation performance comparison.
+    \item Conclusions and perspectives for further research.
+\end{itemize}
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\end{document}

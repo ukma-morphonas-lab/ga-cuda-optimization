@@ -1,0 +1,70 @@
+@startuml cuda-thread-hierarchy
+!theme plain
+skinparam backgroundColor white
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam componentStyle rectangle
+
+title CUDA Thread Hierarchy: Grid → Blocks → Threads
+
+rectangle "Kernel Launch: fitness_kernel<<<4, 256>>>" as launch #White
+
+rectangle "Grid (gridDim.x = 4 blocks)" as grid #LightBlue {
+
+    rectangle "Block 0\n(blockIdx.x = 0)" as block0 #LightYellow {
+        rectangle "Warp 0 (threads 0-31)" as w0_0 #LightCoral {
+            rectangle "T0" as t0_0 #Yellow
+            rectangle "T1" as t0_1 #Yellow
+            rectangle "..." as t0_d #Yellow
+            rectangle "T31" as t0_31 #Yellow
+        }
+        rectangle "Warp 1 (threads 32-63)" as w0_1 #LightCoral
+        rectangle "..." as w0_d
+        rectangle "Warp 7 (threads 224-255)" as w0_7 #LightCoral
+    }
+
+    rectangle "Block 1\n(blockIdx.x = 1)" as block1 #LightYellow {
+        rectangle "Warp 0" as w1_0 #LightCoral
+        rectangle "Warp 1" as w1_1 #LightCoral
+        rectangle "..." as w1_d
+        rectangle "Warp 7" as w1_7 #LightCoral
+    }
+
+    rectangle "Block 2\n(blockIdx.x = 2)" as block2 #LightYellow {
+        rectangle "256 threads\n(8 warps)" as b2_threads #LightCoral
+    }
+
+    rectangle "Block 3\n(blockIdx.x = 3)" as block3 #LightYellow {
+        rectangle "256 threads\n(8 warps)" as b3_threads #LightCoral
+    }
+}
+
+note right of grid
+  **Thread Indexing:**
+  global_idx = blockIdx.x × blockDim.x + threadIdx.x
+
+  **Example (Block 1, Thread 42):**
+  global_idx = 1 × 256 + 42 = 298
+
+  **Total Threads:** 4 × 256 = 1024
+  **Maps to:** Population[0..1023]
+end note
+
+note bottom of block0
+  **Block Properties:**
+  - blockDim.x = 256 threads
+  - 8 warps per block
+  - Shared memory scope
+  - Can synchronize with __syncthreads()
+end note
+
+note bottom of w0_0
+  **Warp Properties:**
+  - 32 threads execute in lockstep
+  - SIMT execution model
+  - Hardware scheduling unit
+end note
+
+launch -down-> grid
+
+@enduml

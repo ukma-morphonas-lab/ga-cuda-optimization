@@ -1,0 +1,184 @@
+% main.tex — Composed master document for reading the full paper
+%
+% Compile from the core-research-material/ directory:
+%   pdflatex main.tex
+%   biber main
+%   pdflatex main.tex
+%   pdflatex main.tex
+%
+% Uses the 'standalone' package so each section file keeps its own
+% \documentclass / \begin{document} wrapper and remains independently
+% compilable.  When \input'd here the preamble is silently stripped.
+%
+% Missing image assets (add 'draft' to \documentclass options to get
+% placeholder boxes instead of errors):
+%   - cpu-gpu.svg              (sec2.2/2.2.1)
+%   - *.png benchmark graphs   (sec3/3.3.1=TSP and sec3/3.2.1=XOR)
+
+\documentclass[a4paper,14pt]{extarticle}
+% All images now available — draft mode removed
+
+% Pre-pass babel options before styles.sty loads it with only [english]
+\PassOptionsToPackage{ukrainian,english}{babel}
+
+\usepackage{standalone}        % strips preamble from \input'd standalone files
+\usepackage{styles}            % project style package (biblatex, geometry, …)
+
+% Additional packages for the composed document
+\usepackage[T2A,T1]{fontenc}   % Cyrillic support for appendix pages
+%\usepackage{svg}              % SVG figures (sec 2.2.1) — disabled until svg assets exist
+\usepackage{pdflscape}         % landscape pages (Appendix A)
+\usepackage{indentfirst}       % indent first paragraph after section headings
+
+% Add each \litSubsubsection to the table of contents (no forced page break)
+\let\origLitSubsubsection\litSubsubsection
+\renewcommand{\litSubsubsection}[1]{%
+  \origLitSubsubsection{#1}%
+  \addcontentsline{toc}{subsubsection}{#1}%
+}
+
+
+% Bibliography resource (must be in preamble, not \AtBeginDocument)
+\addbibresource{sources.bib}
+
+\usepackage{array}             % \newcolumntype, \arraybackslash
+\DeclareUnicodeCharacter{200B}{}  % ignore zero-width spaces (pasted from web)
+% Column types used in Appendix A
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\begin{document}
+
+% ===== Title Page =====
+\thispagestyle{empty}
+\input{title-page-eng}
+\newpage
+
+% ===== Table of Contents =====
+\tableofcontents
+\newpage
+
+% ===== Annotation (Ukrainian) =====
+\selectlanguage{ukrainian}
+\phantomsection
+\addcontentsline{toc}{section}{Анотація}
+\input{annotation-ua}
+\selectlanguage{english}
+\newpage
+
+% ===== Abstract (English) =====
+\phantomsection
+\addcontentsline{toc}{section}{Abstract}
+\input{annotation-eng}
+\newpage
+
+% ===== SECTION 1: INTRODUCTION =====
+\section{Introduction}
+\input{introduction}
+\newpage
+
+% ===== SECTION 2: THEORETICAL BACKGROUND =====
+\section{Theoretical Background}
+
+\subsection{GPU-GA Literature Review}
+
+\input{sec2.1-literature-review/2.1.1-ga-parallelization-potential}
+\input{sec2.1-literature-review/2.1.2-cuda-model-suitability}
+\input{sec2.1-literature-review/2.1.3-prior-studies}
+\input{sec2.1-literature-review/2.1.4-challenges-and-limits}
+
+\newpage
+\subsection{CUDA Architecture and Kernel Execution Model}
+
+\input{sec2.2-cuda-execution-model/2.2.1-fitness-kernel-design}
+\input{sec2.2-cuda-execution-model/2.2.2-gpu-occupancy-utilization}
+\input{sec2.2-cuda-execution-model/2.2.3-amdahl-law-application}
+
+% ===== SECTION 3: EXPERIMENTAL METHODOLOGY AND RESULTS =====
+\newpage
+\section{Experimental Methodology and Results}
+
+\subsection{Experimental Methodology}
+
+\input{sec3-experimental-methodology/3.1.1-optimization-process-tools}
+\input{sec3-experimental-methodology/3.1.2-occupancy-calculation}
+
+\newpage
+\subsection{XOR Perceptron Benchmark}
+
+\input{sec3-experimental-methodology/3.2.1-xor-perceptron-bench}
+
+\newpage
+\subsection{TSP Benchmark}
+
+\input{sec3-experimental-methodology/3.3.1-tsp-bench}
+
+\subsection{Results Interpretation and Implications}
+
+\input{sec3-experimental-methodology/3.4-results-interpretation}
+
+% ===== SECTION 4: FRAMEWORK DEVELOPMENT =====
+% Addendum: practical tool for reproducing experiments, not the paper's main contribution.
+\section{Framework Development}
+
+\subsection{Library Design and Architecture}
+
+\input{sec4-framework/4.1-library-design-architecture}
+
+\newpage
+\subsection{Experiments and Benchmarks Results Comparison}
+
+\input{sec4-framework/4.2-experiments-comparison}
+
+% ===== SECTION 5: RESULTS AND CONCLUSION =====
+\newpage
+\section{Conclusion}
+
+\input{conclusion}
+
+% ===== AI Tools Disclosure =====
+\newpage
+\section*{Use of AI Tools}
+
+During work on this thesis we used Anthropic Claude (through Claude Code) and Perplexity. These tools helped with going through references, writing Python scripts for the experiments, producing figures, getting the \LaTeX{} right, reviewing drafts, cross-checking numbers against the raw data, translation between Ukrainian and English, and checking whether the academic voice and vocabulary were appropriate for the target audience. Everything they produced was read, tested, and rewritten where needed before going into the final text.
+
+The research itself, from designing the experiments to reading the results to drawing conclusions, is entirely the author's work.
+
+% ===== Code and Data Availability =====
+\newpage
+\section*{Code and Data Availability}
+
+The source code for the CUDA-accelerated genetic algorithm framework developed in this thesis is publicly available at:
+
+\url{https://github.com/ukma-morphonas-lab/py-cuda-ga}
+
+% ===== Appendices =====
+\newpage
+\appendix
+
+\selectlanguage{ukrainian}
+
+\input{plan_app_a}
+
+\section{Assignment}
+\input{paper-task_app_b_eng}
+
+\selectlanguage{english}
+
+\newpage
+\section{Library Source Code}
+\label{app:library}
+
+The source code for the GPU-accelerated genetic algorithm library developed as part of this research is publicly available under the MIT License:
+
+\begin{itemize}
+  \item \textbf{Repository:} \url{https://github.com/stasiaaleks/py-cuda-ga}
+  \item \textbf{Title:} \texttt{py-cuda-ga} - GPU-accelerated Genetic Algorithm Kernels Using NVIDIA CUDA via Numba JIT Compilation
+  \item \textbf{Author:} Aleksieienko, Anastasiia
+\end{itemize}
+
+% ===== Bibliography =====
+\newpage
+\printbibliography
+
+\end{document}

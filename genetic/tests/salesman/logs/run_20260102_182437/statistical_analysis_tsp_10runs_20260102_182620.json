@@ -1,0 +1,262 @@
+{
+  "timestamp": "20260102_182620",
+  "config": {
+    "population_size": 200,
+    "max_generations": 100,
+    "n_runs": 10,
+    "alpha": 0.05,
+    "graph_size": 50,
+    "tournament_size": 5,
+    "mutation_rate": 0.1,
+    "fit_selection_rate": 0.5,
+    "graph_seed": 42
+  },
+  "statistical_results": {
+    "n_runs": 10,
+    "gpu_mean_fitness": 9775.947001552582,
+    "cpu_mean_fitness": 10220.312000000002,
+    "gpu_std_fitness": 455.00289100421514,
+    "cpu_std_fitness": 935.8681933168922,
+    "p_value_fitness": 0.275390625,
+    "fitness_difference": -444.36499844741866,
+    "gpu_mean_time": 0.4296635866165161,
+    "cpu_mean_time": 0.5561237812042237,
+    "gpu_std_time": 0.11231988607198555,
+    "cpu_std_time": 0.0077401850096244385,
+    "p_value_time": 0.006361250053808662,
+    "speedup_factor": 1.2943237419385414,
+    "speedup_ci_lower": 1.1213653330321758,
+    "speedup_ci_upper": 1.511728659702251,
+    "time_significant": true,
+    "fitness_significant": false
+  },
+  "gpu_results": [
+    {
+      "seed": 0,
+      "gpu_enabled": true,
+      "generations_run": 100,
+      "final_fitness": 9964.319999694824,
+      "wall_time": 0.4905557632446289,
+      "compute_time": 0.14350032806396484,
+      "transfer_time": 0.11265301704406738,
+      "graph_size": 50,
+      "final_path_cost": 9964.319999694824
+    },
+    {
+      "seed": 1,
+      "gpu_enabled": true,
+      "generations_run": 100,
+      "final_fitness": 9188.229986190796,
+      "wall_time": 0.6687617301940918,
+      "compute_time": 0.18683624267578125,
+      "transfer_time": 0.1531209945678711,
+      "graph_size": 50,
+      "final_path_cost": 9188.229986190796
+    },
+    {
+      "seed": 2,
+      "gpu_enabled": true,
+      "generations_run": 100,
+      "final_fitness": 10368.940063476562,
+      "wall_time": 0.4996829032897949,
+      "compute_time": 0.1495685577392578,
+      "transfer_time": 0.11903882026672363,
+      "graph_size": 50,
+      "final_path_cost": 10368.940063476562
+    },
+    {
+      "seed": 3,
+      "gpu_enabled": true,
+      "generations_run": 100,
+      "final_fitness": 9579.779989242554,
+      "wall_time": 0.36862778663635254,
+      "compute_time": 0.05485391616821289,
+      "transfer_time": 0.08141398429870605,
+      "graph_size": 50,
+      "final_path_cost": 9579.779989242554
+    },
+    {
+      "seed": 4,
+      "gpu_enabled": true,
+      "generations_run": 100,
+      "final_fitness": 9537.749965667725,
+      "wall_time": 0.5271134376525879,
+      "compute_time": 0.15714097023010254,
+      "transfer_time": 0.13145947456359863,
+      "graph_size": 50,
+      "final_path_cost": 9537.749965667725
+    },
+    {
+      "seed": 5,
+      "gpu_enabled": true,
+      "generations_run": 100,
+      "final_fitness": 10158.979970932007,
+      "wall_time": 0.36333703994750977,
+      "compute_time": 0.04333162307739258,
+      "transfer_time": 0.08243036270141602,
+      "graph_size": 50,
+      "final_path_cost": 10158.979970932007
+    },
+    {
+      "seed": 6,
+      "gpu_enabled": true,
+      "generations_run": 100,
+      "final_fitness": 9390.699989318848,
+      "wall_time": 0.36811113357543945,
+      "compute_time": 0.05712461471557617,
+      "transfer_time": 0.07806181907653809,
+      "graph_size": 50,
+      "final_path_cost": 9390.699989318848
+    },
+    {
+      "seed": 7,
+      "gpu_enabled": true,
+      "generations_run": 100,
+      "final_fitness": 9545.120084762573,
+      "wall_time": 0.35486388206481934,
+      "compute_time": 0.03663277626037598,
+      "transfer_time": 0.07446694374084473,
+      "graph_size": 50,
+      "final_path_cost": 9545.120084762573
+    },
+    {
+      "seed": 8,
+      "gpu_enabled": true,
+      "generations_run": 100,
+      "final_fitness": 9476.700013160706,
+      "wall_time": 0.32892346382141113,
+      "compute_time": 0.032756805419921875,
+      "transfer_time": 0.06381964683532715,
+      "graph_size": 50,
+      "final_path_cost": 9476.700013160706
+    },
+    {
+      "seed": 9,
+      "gpu_enabled": true,
+      "generations_run": 100,
+      "final_fitness": 10548.949953079224,
+      "wall_time": 0.3266587257385254,
+      "compute_time": 0.03368330001831055,
+      "transfer_time": 0.06870555877685547,
+      "graph_size": 50,
+      "final_path_cost": 10548.949953079224
+    }
+  ],
+  "cpu_results": [
+    {
+      "seed": 0,
+      "gpu_enabled": false,
+      "generations_run": 100,
+      "final_fitness": 9537.960000000001,
+      "wall_time": 0.551720380783081,
+      "compute_time": 0.40233826637268066,
+      "transfer_time": 0.0,
+      "graph_size": 50,
+      "final_path_cost": 9537.960000000001
+    },
+    {
+      "seed": 1,
+      "gpu_enabled": false,
+      "generations_run": 100,
+      "final_fitness": 10749.460000000005,
+      "wall_time": 0.5643162727355957,
+      "compute_time": 0.410233736038208,
+      "transfer_time": 0.0,
+      "graph_size": 50,
+      "final_path_cost": 10749.460000000005
+    },
+    {
+      "seed": 2,
+      "gpu_enabled": false,
+      "generations_run": 100,
+      "final_fitness": 11392.11,
+      "wall_time": 0.542961597442627,
+      "compute_time": 0.3971278667449951,
+      "transfer_time": 0.0,
+      "graph_size": 50,
+      "final_path_cost": 11392.11
+    },
+    {
+      "seed": 3,
+      "gpu_enabled": false,
+      "generations_run": 100,
+      "final_fitness": 11648.240000000003,
+      "wall_time": 0.5546629428863525,
+      "compute_time": 0.40622687339782715,
+      "transfer_time": 0.0,
+      "graph_size": 50,
+      "final_path_cost": 11648.240000000003
+    },
+    {
+      "seed": 4,
+      "gpu_enabled": false,
+      "generations_run": 100,
+      "final_fitness": 10818.789999999999,
+      "wall_time": 0.5506637096405029,
+      "compute_time": 0.40351009368896484,
+      "transfer_time": 0.0,
+      "graph_size": 50,
+      "final_path_cost": 10818.789999999999
+    },
+    {
+      "seed": 5,
+      "gpu_enabled": false,
+      "generations_run": 100,
+      "final_fitness": 9202.03,
+      "wall_time": 0.5676577091217041,
+      "compute_time": 0.4129319190979004,
+      "transfer_time": 0.0,
+      "graph_size": 50,
+      "final_path_cost": 9202.03
+    },
+    {
+      "seed": 6,
+      "gpu_enabled": false,
+      "generations_run": 100,
+      "final_fitness": 9538.789999999997,
+      "wall_time": 0.5637350082397461,
+      "compute_time": 0.41110968589782715,
+      "transfer_time": 0.0,
+      "graph_size": 50,
+      "final_path_cost": 9538.789999999997
+    },
+    {
+      "seed": 7,
+      "gpu_enabled": false,
+      "generations_run": 100,
+      "final_fitness": 8922.16,
+      "wall_time": 0.5585947036743164,
+      "compute_time": 0.4100148677825928,
+      "transfer_time": 0.0,
+      "graph_size": 50,
+      "final_path_cost": 8922.16
+    },
+    {
+      "seed": 8,
+      "gpu_enabled": false,
+      "generations_run": 100,
+      "final_fitness": 9897.54,
+      "wall_time": 0.5577211380004883,
+      "compute_time": 0.40541958808898926,
+      "transfer_time": 0.0,
+      "graph_size": 50,
+      "final_path_cost": 9897.54
+    },
+    {
+      "seed": 9,
+      "gpu_enabled": false,
+      "generations_run": 100,
+      "final_fitness": 10496.039999999997,
+      "wall_time": 0.5492043495178223,
+      "compute_time": 0.4014475345611572,
+      "transfer_time": 0.0,
+      "graph_size": 50,
+      "final_path_cost": 10496.039999999997
+    }
+  ],
+  "power_analysis": {
+    "small_effect": 393,
+    "medium_effect": 63,
+    "large_effect": 25
+  }
+}

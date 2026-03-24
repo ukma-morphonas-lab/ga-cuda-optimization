@@ -1,0 +1,61 @@
+    \documentclass[14pt,a4paper]{extarticle}
+
+    \usepackage[utf8]{inputenc}
+    \usepackage[english]{babel}
+    \usepackage{setspace}
+    \usepackage{geometry}
+
+    \geometry{
+        left=25mm,
+        right=15mm,
+        top=20mm,
+        bottom=20mm
+    }
+
+    \setstretch{1.5}
+
+    \begin{document}
+
+    This course paper investigates the acceleration of genetic algorithms through CUDA-based GPU parallelization, covering both performance analysis and the development of reusable implementation components.
+
+    \bigskip\textbf{Hypothesis.} The application of CUDA technology to parallelize computations in genetic algorithms 
+    will enable significant acceleration of key operations: fitness function evaluation, 
+    selection, crossover, and mutation - compared to sequential implementation on the CPU. 
+    It is expected that parallelization efficiency will increase with population
+    size and computational complexity of the fitness function, subject to the theoretical limits imposed by Amdahl's Law and data transfer overhead.
+
+    \bigskip Parallel processing of large populations on the GPU is expected to improve the quality of
+    solutions found, because it allows operation with significantly larger population sizes without
+    a proportional increase in overall algorithm execution time. This opens up new
+    possibilities for solving complex optimization problems in acceptable timeframes.
+
+    \bigskip\textbf{Object of the Research.} Genetic algorithms represent the general domain of the research paper, serving as black-box optimization material.
+
+    \bigskip\textbf{Subject of the Research.} Parallelization strategies and speedups achieved through CUDA form the specific focus, targeting custom kernel development for selection, crossover, mutation, and fitness evaluation on GPU.
+    ​
+
+    \bigskip\textbf{Research Gap.} A comparative analysis of publication volumes on Semantic Scholar\footnote{Semantic Scholar Academic Graph API v1. Endpoint: \texttt{GET .../graph/v1/paper/\allowbreak search?\allowbreak query=\{Q\}\&limit=1} (base URL: \texttt{api.semanticscholar.org}). The \texttt{total} field in the JSON response gives the match count; \texttt{\&year=2020-2025} was appended for five-year filtering. All queries: October~2025. Verification in March~2026: control returned \texttt{total:\,286918} (all-time) and \texttt{total:\,109069} (5-year), confirming proportionality with the original data.} (accessed October 2025) shows that GPU-accelerated genetic algorithm optimization is substantially less studied than established optimization domains. Table~\ref{tab:ss-gap} summarizes the result counts.
+
+    \begin{table}[h]
+    \centering
+    \caption{Semantic Scholar publication counts by query (October 2025).}
+    \label{tab:ss-gap}
+    \small
+    \begin{tabular}{p{0.55\textwidth}rrr}
+    \hline
+    \textbf{Query} & \textbf{All-time} & \textbf{5-year} & \textbf{Ratio}\textsuperscript{*} \\
+    \hline
+    databases clustering optimization (control) & 243{,}000 & 94{,}500 & 1$\times$ \\
+    CUDA parallel processing genetic algorithms & 8{,}800 & 1{,}380 & 28$\times$ \\
+    MapReduce parallel processing genetic algorithms optimization & 7{,}530 & 1{,}150 & 32$\times$ \\
+    OpenCL parallel processing genetic algorithms & 6{,}250 & 946 & 39$\times$ \\
+    \hline
+    \multicolumn{4}{l}{\textsuperscript{*}Ratio = control all-time / query all-time, rounded.}
+    \end{tabular}
+    \end{table}
+
+    Within this space, the majority of GPU implementations use native C/C++ CUDA kernels or high-level framework abstractions (EvoJAX, EvoTorch, EvoX). Python-native CUDA kernel development via Numba, despite NVIDIA's investment in a Python CUDA SDK, appears rarely in the evolutionary computation literature. This gap motivates an investigation into whether Python-native GPU kernel development can achieve competitive speedups while retaining the prototyping speed and accessibility advantages that Python offers over lower-level CUDA C/C++ workflows.
+
+    \bigskip\textbf{Structure of the Paper.} Section~2 provides the theoretical background: a literature review of GPU-accelerated genetic algorithms (Section~2.1) and an overview of CUDA architecture with kernel design principles (Section~2.2). Section~3 presents the experimental methodology, benchmark configurations, and results for two test problems: XOR perceptron training (Section~3.2) and the Traveling Salesman Problem (Section~3.3), followed by a cross-benchmark analysis (Section~3.4). Section~4 describes the reusable GPU-accelerated GA library developed from the experimental code and validates its results against the original benchmarks. Section~5 summarizes the findings and outlines directions for future work.
+
+    \end{document}

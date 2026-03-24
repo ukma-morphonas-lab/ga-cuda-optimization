@@ -1,0 +1,55 @@
+@startuml CPU_GPU_Architecture_Comparison
+
+skinparam backgroundColor white
+skinparam defaultFontName "Serif"
+skinparam defaultFontSize 12
+skinparam monochrome true
+skinparam padding 1
+skinparam ranksep 10
+skinparam nodesep 10
+skinparam rectangle {
+    BorderColor black
+    BorderThickness 1
+    margin 5
+}
+
+title CPU/GPU Architecture Comparison
+
+together {
+    rectangle "**CPU**" as cpu_box {
+        rectangle "Core 1" as c1
+        rectangle "Core 2" as c2
+        rectangle "Core 3" as c3
+        rectangle "Core 4" as c4
+    }
+
+    rectangle "**GPU**" as gpu_box {
+        rectangle "Multiprocessor 1 (32 Cores)" as mp1
+        rectangle "Multiprocessor 2 (32 Cores)" as mp2
+        rectangle "Multiprocessor 3 (32 Cores)" as mp3
+        rectangle "Multiprocessor 4 (32 Cores)" as mp4
+        rectangle "..." as dots1
+        rectangle "..." as dots2
+        rectangle "Multiprocessor 13 (32 Cores)" as mp13
+        rectangle "Multiprocessor 14 (32 Cores)" as mp14
+    }
+}
+
+c1 -[hidden]r- c2
+c3 -[hidden]r- c4
+c1 -[hidden]d- c3
+c2 -[hidden]d- c4
+
+mp1 -[hidden]r- mp2
+mp3 -[hidden]r- mp4
+mp13 -[hidden]r- mp14
+mp1 -[hidden]d- mp3
+mp3 -[hidden]d- dots1
+dots1 -[hidden]d- mp13
+mp2 -[hidden]d- mp4
+mp4 -[hidden]d- dots2
+dots2 -[hidden]d- mp14
+
+cpu_box -[hidden]r- gpu_box
+
+@enduml

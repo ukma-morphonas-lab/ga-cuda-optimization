@@ -1,0 +1,61 @@
+@startuml host_device_transfer
+skinparam backgroundColor white
+skinparam sequenceMessageAlign center
+skinparam defaultFontSize 13
+skinparam defaultFontName "Serif"
+skinparam monochrome true
+skinparam sequence {
+  ArrowColor black
+  LifeLineBorderColor black
+  LifeLineBackgroundColor white
+  ParticipantBorderColor black
+  ParticipantBackgroundColor white
+  ParticipantFontSize 13
+  ParticipantFontStyle bold
+  DividerBackgroundColor white
+  DividerBorderColor black
+  DividerFontStyle bold
+  GroupBorderColor black
+  GroupBackgroundColor white
+  NoteBackgroundColor white
+  NoteBorderColor black
+}
+skinparam BoxPadding 15
+
+box "Host (CPU)"
+  participant "Pageable\nMemory" as PM
+  participant "Pinned\n(Page-Locked)\nMemory" as PIN
+end box
+
+box "DMA Engine"
+  participant "PCIe\nBus" as DMA
+end box
+
+box "Device (GPU)"
+  participant "Device\nMemory\n(DRAM)" as DEV
+end box
+
+== Pageable Transfer Path (standard allocation) ==
+
+PM -> PIN : 1. Driver copies to\nstaging buffer\n//(CPU-mediated, blocks CPU)//
+activate PIN
+PIN -> DMA : 2. Initiate DMA
+activate DMA
+DMA -> DEV : 3. DMA transfer\nover PCIe bus
+activate DEV
+deactivate DEV
+deactivate DMA
+deactivate PIN
+note right of DEV : Extra copy adds\nlatency + blocks CPU
+
+== Pinned Transfer Path (cuda.pinned_array) ==
+
+PIN -> DMA : 1. Direct DMA\n//(no staging copy)//
+activate DMA
+DMA -> DEV : 2. DMA transfer\nover PCIe bus
+activate DEV
+deactivate DEV
+deactivate DMA
+note right of DEV : Single transfer,\nhigher bandwidth,\nCPU free sooner
+
+@enduml

@@ -1,0 +1,268 @@
+{
+  "session_start_time": "2025-12-25T18:52:28.207483",
+  "session_end_time": "2025-12-25T18:54:02.765696",
+  "session_duration": 94.558213,
+  "environment_info": {
+    "python_version": "3.11.12",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "cpu_count": 12,
+    "memory_total": 7,
+    "memory_available": 4,
+    "memory_used_percent": 40.9,
+    "gpu_count": 1,
+    "gpu_name": "NVIDIA GeForce RTX 2050",
+    "gpu_memory_total": 3,
+    "gpu_memory_available": 3,
+    "gpu_memory_used_percent": 0.0
+  },
+  "test_file": "/home/anastasiia/projects/CUDA-GA/cuda-ga-optimization/genetic/tests/perceptron/test_statistical_analysis.py",
+  "total_tests_run": 7,
+  "tests_passed": 7,
+  "tests_failed": 0,
+  "test_results": [
+    {
+      "test_name": "quick_statistical_analysis",
+      "test_start_time": "2025-12-25T18:52:30.189995",
+      "test_parameters": {
+        "n_runs": 5,
+        "population_size": 50,
+        "max_generations": 100
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-25T18:52:32.086356",
+      "test_extra_info": {
+        "speedup": 0.17011338422133432,
+        "gpu_mean_fitness": 2.0,
+        "cpu_mean_fitness": 2.0
+      },
+      "test_duration": 1.896361
+    },
+    {
+      "test_name": "full_statistical_analysis",
+      "test_start_time": "2025-12-25T18:52:32.088205",
+      "test_parameters": {
+        "n_runs": 30,
+        "population_size": 100,
+        "max_generations": 500,
+        "alpha": 0.05
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-25T18:52:59.821062",
+      "test_extra_info": {
+        "n_runs": 30,
+        "gpu_mean_fitness": 2.0,
+        "cpu_mean_fitness": 2.0,
+        "gpu_std_fitness": 0.0,
+        "cpu_std_fitness": 0.0,
+        "p_value_fitness": 1.0,
+        "gpu_mean_time": 0.3683391332626343,
+        "cpu_mean_time": 0.5552368799845377,
+        "gpu_std_time": 0.04451316814623914,
+        "cpu_std_time": 0.05992002932413294,
+        "p_value_time": 1.6346207270753568e-14,
+        "speedup_factor": 1.5074067071462673,
+        "speedup_ci_lower": 0.9264070487654135,
+        "speedup_ci_upper": 1.5074067071462673,
+        "time_significant": true,
+        "fitness_significant": false,
+        "total_fitness_evals": 50000,
+        "gpu_compute_ms": 248.56690565745035,
+        "cpu_compute_ms": 319.942045211792,
+        "gpu_transfer_ms": 107.65824317932129,
+        "gpu_fitness_per_sec": 201153.085394662,
+        "cpu_fitness_per_sec": 156278.30336241523
+      },
+      "test_duration": 27.732857
+    },
+    {
+      "test_name": "scaling_analysis_pop_50",
+      "test_start_time": "2025-12-25T18:52:59.822169",
+      "test_parameters": {
+        "population_size": 50,
+        "max_generations": 200,
+        "n_runs": 10
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-25T18:53:02.221853",
+      "test_extra_info": {
+        "population_size": 50,
+        "max_generations": 200,
+        "speedup": 0.7266241335552781,
+        "gpu_mean_time_ms": 138.489031791687,
+        "cpu_mean_time_ms": 100.62947273254395,
+        "gpu_compute_ms": 92.35503673553467,
+        "cpu_compute_ms": 59.20989513397217,
+        "gpu_transfer_ms": 42.26112365722656,
+        "total_fitness_evals": 10000,
+        "gpu_fitness_per_sec": 108277.79787079425,
+        "cpu_fitness_per_sec": 168890.68925681,
+        "gpu_overhead_ratio": 0.4575941405149819
+      },
+      "test_duration": 2.399684
+    },
+    {
+      "test_name": "scaling_analysis_pop_100",
+      "test_start_time": "2025-12-25T18:53:02.222902",
+      "test_parameters": {
+        "population_size": 100,
+        "max_generations": 200,
+        "n_runs": 10
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-25T18:53:05.559918",
+      "test_extra_info": {
+        "population_size": 100,
+        "max_generations": 200,
+        "speedup": 1.4278316341615274,
+        "gpu_mean_time_ms": 137.08734512329102,
+        "cpu_mean_time_ms": 195.7376480102539,
+        "gpu_compute_ms": 92.37041473388672,
+        "cpu_compute_ms": 115.11049270629883,
+        "gpu_transfer_ms": 40.711188316345215,
+        "total_fitness_evals": 20000,
+        "gpu_fitness_per_sec": 216519.54316345474,
+        "cpu_fitness_per_sec": 173746.1071514083,
+        "gpu_overhead_ratio": 0.44073839479482213
+      },
+      "test_duration": 3.337016
+    },
+    {
+      "test_name": "scaling_analysis_pop_500",
+      "test_start_time": "2025-12-25T18:53:05.560898",
+      "test_parameters": {
+        "population_size": 500,
+        "max_generations": 200,
+        "n_runs": 10
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-25T18:53:17.517456",
+      "test_extra_info": {
+        "population_size": 500,
+        "max_generations": 200,
+        "speedup": 6.644013334480438,
+        "gpu_mean_time_ms": 156.29854202270508,
+        "cpu_mean_time_ms": 1038.4495973587036,
+        "gpu_compute_ms": 106.78296089172363,
+        "cpu_compute_ms": 568.9039945602417,
+        "gpu_transfer_ms": 44.98932361602783,
+        "total_fitness_evals": 100000,
+        "gpu_fitness_per_sec": 936478.9959457908,
+        "cpu_fitness_per_sec": 175776.58261531318,
+        "gpu_overhead_ratio": 0.42131556608218
+      },
+      "test_duration": 11.956558
+    },
+    {
+      "test_name": "scaling_analysis_pop_1000",
+      "test_start_time": "2025-12-25T18:53:17.518485",
+      "test_parameters": {
+        "population_size": 1000,
+        "max_generations": 200,
+        "n_runs": 10
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-25T18:53:41.654137",
+      "test_extra_info": {
+        "population_size": 1000,
+        "max_generations": 200,
+        "speedup": 14.559428365395336,
+        "gpu_mean_time_ms": 155.06279468536377,
+        "cpu_mean_time_ms": 2257.625651359558,
+        "gpu_compute_ms": 107.98165798187256,
+        "cpu_compute_ms": 1112.7073764801025,
+        "gpu_transfer_ms": 42.79837608337402,
+        "total_fitness_evals": 200000,
+        "gpu_fitness_per_sec": 1852166.4117583288,
+        "cpu_fitness_per_sec": 179741.7759848709,
+        "gpu_overhead_ratio": 0.3963485732971317
+      },
+      "test_duration": 24.135652
+    },
+    {
+      "test_name": "scaling_summary",
+      "test_start_time": "2025-12-25T18:53:41.655703",
+      "test_parameters": {
+        "population_sizes": [
+          50,
+          100,
+          500,
+          1000
+        ],
+        "max_generations": 200,
+        "n_runs": 5
+      },
+      "test_output": "",
+      "test_error": "",
+      "test_traceback": "",
+      "test_result": "passed",
+      "test_end_time": "2025-12-25T18:54:02.765279",
+      "test_extra_info": {
+        "scaling_results": [
+          {
+            "pop_size": 50,
+            "speedup": 0.6882797080355014,
+            "gpu_time": 0.14575352668762206,
+            "cpu_time": 0.10031919479370117,
+            "gpu_compute": 0.09712953567504883,
+            "cpu_compute": 0.05924410820007324,
+            "fitness_evals": 10000,
+            "gpu_fitness_per_sec": 102955.29501402585,
+            "cpu_fitness_per_sec": 168793.15604226847
+          },
+          {
+            "pop_size": 100,
+            "speedup": 1.453577720503219,
+            "gpu_time": 0.13481698036193848,
+            "cpu_time": 0.1959669589996338,
+            "gpu_compute": 0.09031109809875489,
+            "cpu_compute": 0.11624069213867187,
+            "fitness_evals": 20000,
+            "gpu_fitness_per_sec": 221456.72482168322,
+            "cpu_fitness_per_sec": 172056.78693086724
+          },
+          {
+            "pop_size": 500,
+            "speedup": 6.969604770878912,
+            "gpu_time": 0.1491055965423584,
+            "cpu_time": 1.0392070770263673,
+            "gpu_compute": 0.1016077995300293,
+            "cpu_compute": 0.5723532676696778,
+            "fitness_evals": 100000,
+            "gpu_fitness_per_sec": 984176.4162055873,
+            "cpu_fitness_per_sec": 174717.26929619454
+          },
+          {
+            "pop_size": 1000,
+            "speedup": 14.114765256623008,
+            "gpu_time": 0.16231913566589357,
+            "cpu_time": 2.291096496582031,
+            "gpu_compute": 0.11378173828125,
+            "cpu_compute": 1.139854907989502,
+            "fitness_evals": 200000,
+            "gpu_fitness_per_sec": 1757751.3142366698,
+            "cpu_fitness_per_sec": 175460.92805159197
+          }
+        ]
+      },
+      "test_duration": 21.109576
+    }
+  ]
+}

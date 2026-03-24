@@ -1,0 +1,58 @@
+\documentclass[a4paper,14pt]{extarticle}
+\usepackage{styles}
+
+\begin{document}
+
+% Motivation: why extract a reusable library from the incremental research codebase
+This section describes the CUDA-accelerated genetic algorithm library built from the experimental code in Sections 3.1 and 3.2. The code was refactored into a modular framework so that it can be reused for other GPU-based evolutionary algorithms beyond TSP and XOR. The source code is publicly available (Appendix~\ref{app:library}).
+
+\subsubsection*{Package Structure} The library has four top-level modules:
+(1) \texttt{kernels/} - CUDA kernels for genetic operators and fitness evaluation,
+(2) \texttt{device/} - GPU memory management and occupancy-based grid configuration,
+(3) \texttt{statistics/} - paired experiment runner and statistical tests,
+(4) \texttt{artifacts/} - sample TSP and XOR implementations ported from the experimental code, used to verify reproducibility of results from Sections 3.1 and 3.2.
+
+\subsubsection*{Design Patterns}
+
+The library uses several design patterns to keep CUDA boilerplate separate from problem-specific logic.
+
+\textbf{Strategy Pattern - Fitness Evaluation.}
+Fitness evaluation is the only part that changes between problems: TSP computes path cost over a distance matrix, while XOR accumulates forward-pass error. The library defines an abstract \texttt{FitnessStrategy} base class with a \texttt{launch()} method. Users subclass it, store problem-specific data (e.g., distance matrix, training inputs) as attributes, and launch the CUDA kernel. The library takes care of memory allocation and grid configuration.
+
+\textbf{Facade Pattern.}
+Three facade classes wrap the repetitive CUDA setup:
+(1) \texttt{GAMemoryManager} allocates all GA buffers (population, fitness, elite, offspring, sorted indices) as \texttt{PinnedDevicePair} instances and tracks total device memory usage,
+(2) \texttt{RNGManager} initializes Xoroshiro128p GPU state with lazy allocation and seed reset,
+(3) \texttt{Fitness\-Evaluator} takes a user-provided \texttt{Fitness\-Strategy}, configures the grid automatically, and exposes a single \texttt{evaluate()} call.
+All three are dataclasses with method chaining for concise setup.
+
+\textbf{Paired Memory Abstraction.}
+\texttt{PinnedDevicePair} enforces the pinned-memory optimization from Section 3.1.1: it co-allocates a pinned host array and a device array of the same shape and dtype, with \texttt{to\_device()} and \texttt{to\_host()} transfer methods. Since \texttt{GAMemoryManager} creates all buffers this way, unpinned allocations cannot slip into the GA loop.
+
+\textbf{Composable Kernel Modules.}
+Each genetic operator is a dataclass that pairs \texttt{@cuda.jit} kernels with a launch method and lazy grid configuration. The four modules are:
+(1) \texttt{Selection\-Kernels} - elite gathering by sorted fitness index,
+(2) \texttt{Crossover\-Kernels} - single-point, two-point, and uniform crossover,
+(3) \texttt{Mutation\-Kernels} - gaussian, swap, inversion, and bit-flip operators,
+(4) \texttt{Population\-Kernels} - initialization, merge, copy, and steady-state replacement.
+Modules can be used independently: for example, one can use selection and mutation without crossover, or swap out a single module. All modules accept device arrays and RNG states as arguments and manage their own \texttt{GridConfig}.
+
+\subsubsection*{Occupancy-Based Grid Configuration}
+
+The \texttt{device/} module automates the grid configuration that was manually tuned in Section 3.1.2. It reads GPU properties at runtime via CuPy and stores them in a \texttt{GPUProperties} dataclass (SM count, warp size, max threads per block, shared memory limits, compute capability). A built-in registry maps compute capabilities to thread limits (e.g., CC 8.6 $\to$ 1536 threads per SM, matching the RTX 2050 used here).
+
+\texttt{calculate\_optimal\_config()} picks threads-per-block based on problem size (warp-aligned for small populations, 256 for medium, 512 for large) and computes blocks-per-grid by ceiling division, capped at the SM thread limit. The returned \texttt{KernelConfig} includes an occupancy estimate (ratio of allocated to total GPU threads), classified by \texttt{OccupancyLevel}: very low ($<$25\%), low (25--50\%), moderate (50--80\%), good ($>$80\%).
+
+There is also an inverse function, \texttt{calculate\_optimal\_\allowbreak{}population\_size()}, which returns the population size needed for a target occupancy, rounded to a multiple of 256. This helps pick population sizes that actually use the hardware instead of arbitrary round numbers.
+
+\subsubsection*{Statistical Analysis Module}
+
+The \texttt{statistics/} module implements the same paired experiment approach used in Section 3, but as a reusable component. It runs paired GPU-vs-CPU experiments, applies statistical tests, and optionally saves results to JSON. Configuration goes through \texttt{ExperimentConfig} (population size, generations, number of runs, significance level).
+
+Three tests are applied:
+(1) Wilcoxon signed-rank test for fitness equivalence (non-parametric, does not assume normality),
+(2) paired $t$-test for wall-clock time differences,
+(3) bootstrap confidence interval for the speedup ratio (CPU/GPU time), with 10{,}000 resamples and a fixed seed.
+A power analysis utility is also included so users can check whether their chosen $n$ gives enough statistical power before running experiments.
+
+\end{document}

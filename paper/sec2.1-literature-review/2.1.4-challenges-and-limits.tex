@@ -1,0 +1,21 @@
+\documentclass[a4paper,14pt]{extarticle}
+\usepackage{styles}
+
+\begin{document}
+
+\litSubsubsection{2.1.4 Implementation Challenges and Scalability Limits}
+
+Several factors can limit GPU performance advantages over CPUs. Small inputs leave most of the device idle, since thousands of concurrent threads are needed for efficient operation~\cite{carpentries_gpu}. Low arithmetic intensity causes the GPU to spend most time waiting on memory, and the fixed cost of a kernel launch can exceed the computation~\cite{carpentries_gpu}. Host-device data transfer adds PCIe latency, so data should be transferred once and kept resident~\cite{carpentries_gpu}. Data types also matter: 64-bit floating-point throughput varies from 1/2 (data center GPUs like A100) to 1/64 (consumer GPUs like the RTX 2050 used in this work) of 32-bit throughput, depending on the architecture~\cite{nvidia2024programming}.
+
+Figure~\ref{fig:gpu-ga-bottlenecks} shows how these bottlenecks arise in a typical GPU-accelerated GA execution loop.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{diagrams/sec2/gpu-ga-bottlenecks.png}
+\caption{GPU-accelerated GA execution pipeline with four performance bottlenecks: PCIe transfer latency, kernel launch overhead, SM underutilization for small populations, and sequential CPU-side selection.}
+\label{fig:gpu-ga-bottlenecks}
+\end{figure}
+
+Algorithmic constraints further limit scalability. By Amdahl's Law (Section 2.2.3), the sequential portion bounds the maximum speedup. In GAs, certain operations are hard to parallelize: ``traditional selection algorithms [...] require synchronization between threads, which is not conducive to massive parallelism''~\cite{wang2020mpga}, and ``some complex genetic operations require tree parsing and reconstruction, which are difficult to parallelize efficiently on GPUs''~\cite{wu2025evogp}. The optimal balance between population size, generations, and problem complexity is benchmarked in the following sections.
+
+\end{document}

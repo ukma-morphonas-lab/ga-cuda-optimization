@@ -1,0 +1,24 @@
+\documentclass[a4paper,14pt]{extarticle}
+\usepackage{styles}
+
+\begin{document}
+
+Both benchmarks consistently demonstrate that CUDA-accelerated genetic algorithms outperform sequential CPU implementations once a minimum workload threshold is met.
+
+\subsubsection*{Common Findings Across Benchmarks}
+
+A shared GPU breakeven point is observed at population size $\approx$100. Below this threshold, kernel launch latency and host--device transfer overhead exceed the computational savings from parallelism, and the CPU is faster (0.59--0.73$\times$). Above it, GPU speedup grows: from 1.15$\times$ to 1.61$\times$ for TSP and from 1.43$\times$ to 14.56$\times$ for the XOR perceptron. Transfer overhead decreases as workload grows: from 38.6\% to 17.7\% (TSP) and from 30.5\% to 27.6\% (XOR). This confirms that larger populations amortize the fixed cost of data movement, as predicted by the Amdahl's Law analysis in Section 2.2.3.
+
+In both benchmarks, GPU compute time remains nearly constant as population size increases, while CPU time scales linearly. This validates the expected $O(1)$ GPU vs.\ $O(n)$ CPU per-generation complexity for parallel fitness evaluation. All speedup differences are statistically significant ($p < 0.05$), with large effect sizes (Cohen's $d > 0.8$) at population sizes $\geq 100$.
+
+\subsubsection*{Problem-Specific Differences}
+
+The magnitude of GPU advantage depends on fitness function complexity. The XOR perceptron, with its lightweight two-weight evaluation, achieves much higher speedups at large populations (14.56$\times$ at population 1000) because GPU compute time stays nearly flat regardless of population size. TSP, with its $O(n)$ path cost calculation per individual, reaches more moderate speedups (up to 1.61$\times$) but benefits from an additional dimension of scaling: increasing city count increases the GPU advantage even at fixed population sizes (1.24$\times$ at 100 cities, 1.61$\times$ at 200 cities). The TSP benchmark also shows significantly better solution quality on GPU ($p < 0.001$), possibly due to differences in RNG sequences or floating-point behavior in GPU-resident evolution, though the underlying cause was not isolated.
+
+\subsubsection*{Implications}
+
+GPU acceleration is not universally beneficial: populations below 100 individuals should remain on the CPU unless additional GPU-resident operations (mutation, crossover, selection) eliminate transfer overhead entirely. However, the near-constant GPU compute time means that the speedup ratio improves with every increase in population size. This makes CUDA particularly useful for large-scale evolutionary searches where solution quality depends on maintaining large, diverse populations.
+
+Across both problems, host--device data movement (not kernel execution) is the dominant cost component at moderate scales. Optimization efforts should prioritize reducing transfer frequency (e.g., keeping the full evolutionary loop on GPU) over micro-optimizing kernel arithmetic. The consistent breakeven threshold across two fundamentally different fitness landscapes suggests that the population size $\approx$100 guideline can be applied to GA workloads on entry-level mobile GPUs (RTX 2050 class), and higher-end hardware with more SMs and memory bandwidth would shift this threshold lower.
+
+\end{document}

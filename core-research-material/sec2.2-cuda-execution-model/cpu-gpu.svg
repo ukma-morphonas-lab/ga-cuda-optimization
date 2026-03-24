@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 250">
+  <style>
+    .title { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; text-anchor: middle; }
+    .label { font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; text-anchor: middle; }
+    .core-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+    .mp-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+    .dots { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; font-weight: bold; }
+  </style>
+  
+  <!-- Title -->
+  <text x="250" y="18" class="title">CPU/GPU Architecture Comparison</text>
+  
+  <!-- CPU Box -->
+  <rect x="30" y="35" width="140" height="195" fill="#fff" stroke="#000" stroke-width="1.5" rx="4"/>
+  <text x="100" y="52" class="label">CPU</text>
+  
+  <!-- CPU Cores - 2x2 grid -->
+  <rect x="42" y="62" width="55" height="50" fill="#ccc" stroke="#000" stroke-width="1" rx="2"/>
+  <text x="69" y="92" class="core-text">Core1</text>
+  
+  <rect x="103" y="62" width="55" height="50" fill="#ccc" stroke="#000" stroke-width="1" rx="2"/>
+  <text x="130" y="92" class="core-text">Core2</text>
+  
+  <rect x="42" y="120" width="55" height="50" fill="#ccc" stroke="#000" stroke-width="1" rx="2"/>
+  <text x="69" y="150" class="core-text">Core3</text>
+  
+  <rect x="103" y="120" width="55" height="50" fill="#ccc" stroke="#000" stroke-width="1" rx="2"/>
+  <text x="130" y="150" class="core-text">Core4</text>
+  
+  <!-- GPU Box -->
+  <rect x="200" y="35" width="270" height="195" fill="#fff" stroke="#000" stroke-width="1.5" rx="4"/>
+  <text x="335" y="52" class="label">GPU</text>
+  
+  <!-- GPU Multiprocessors - Row 1 -->
+  <rect x="215" y="60" width="105" height="30" fill="#eee" stroke="#000" stroke-width="1" rx="2"/>
+  <text x="267" y="73" class="mp-text">Multiprocessor 1</text>
+  <text x="267" y="84" class="mp-text">(32 Cores)</text>
+  
+  <rect x="350" y="60" width="105" height="30" fill="#eee" stroke="#000" stroke-width="1" rx="2"/>
+  <text x="402" y="73" class="mp-text">Multiprocessor 2</text>
+  <text x="402" y="84" class="mp-text">(32 Cores)</text>
+  
+  <!-- GPU Multiprocessors - Row 2 -->
+  <rect x="215" y="95" width="105" height="30" fill="#eee" stroke="#000" stroke-width="1" rx="2"/>
+  <text x="267" y="108" class="mp-text">Multiprocessor 3</text>
+  <text x="267" y="119" class="mp-text">(32 Cores)</text>
+  
+  <rect x="350" y="95" width="105" height="30" fill="#eee" stroke="#000" stroke-width="1" rx="2"/>
+  <text x="402" y="108" class="mp-text">Multiprocessor 4</text>
+  <text x="402" y="119" class="mp-text">(32 Cores)</text>
+  
+  <!-- Dots -->
+  <text x="267" y="148" class="dots">⋮</text>
+  <text x="402" y="148" class="dots">⋮</text>
+  
+  <!-- GPU Multiprocessors - Bottom row -->
+  <rect x="215" y="160" width="105" height="30" fill="#eee" stroke="#000" stroke-width="1" rx="2"/>
+  <text x="267" y="173" class="mp-text">Multiprocessor 13</text>
+  <text x="267" y="184" class="mp-text">(32 Cores)</text>
+  
+  <rect x="350" y="160" width="105" height="30" fill="#eee" stroke="#000" stroke-width="1" rx="2"/>
+  <text x="402" y="173" class="mp-text">Multiprocessor 14</text>
+  <text x="402" y="184" class="mp-text">(32 Cores)</text>
+</svg>

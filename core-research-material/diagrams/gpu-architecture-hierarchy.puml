@@ -1,0 +1,72 @@
+@startuml gpu-architecture-hierarchy
+!theme plain
+skinparam backgroundColor white
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam componentStyle rectangle
+
+title GPU Hardware Hierarchy (NVIDIA RTX 2050 Example)
+
+rectangle "GPU Device" as device #LightBlue {
+    rectangle "Global Memory (4 GB VRAM)" as gmem #LightGray
+
+    together {
+        rectangle "SM 0" as sm0 #LightYellow {
+            rectangle "Shared Memory\n(48-100 KB)" as sh0 #LightGreen
+            rectangle "L1 Cache" as l1_0 #LightGreen
+
+            rectangle "CUDA Cores (128)" as cores0 {
+                rectangle "Core" as c0_0 #Yellow
+                rectangle "Core" as c0_1 #Yellow
+                rectangle "Core" as c0_2 #Yellow
+                rectangle "..." as c0_n #Yellow
+            }
+
+            rectangle "Warp Schedulers (4)" as ws0 #LightCoral
+            rectangle "Register File\n(65536 x 32-bit)" as rf0 #Lavender
+        }
+
+        rectangle "SM 1" as sm1 #LightYellow {
+            rectangle "Shared Memory" as sh1 #LightGreen
+            rectangle "L1 Cache" as l1_1 #LightGreen
+            rectangle "CUDA Cores (128)" as cores1 {
+                rectangle "Core" as c1_0 #Yellow
+                rectangle "Core" as c1_1 #Yellow
+                rectangle "..." as c1_n #Yellow
+            }
+            rectangle "Warp Schedulers (4)" as ws1 #LightCoral
+            rectangle "Register File" as rf1 #Lavender
+        }
+
+        rectangle "..." as sm_dots
+
+        rectangle "SM 15" as sm15 #LightYellow {
+            rectangle "Shared Memory" as sh15 #LightGreen
+            rectangle "L1 Cache" as l1_15 #LightGreen
+            rectangle "CUDA Cores (128)" as cores15 {
+                rectangle "Core" as c15_0 #Yellow
+                rectangle "..." as c15_n #Yellow
+            }
+            rectangle "Warp Schedulers (4)" as ws15 #LightCoral
+            rectangle "Register File" as rf15 #Lavender
+        }
+    }
+
+    rectangle "L2 Cache (2 MB)" as l2 #LightGreen
+}
+
+note right of device
+  **RTX 2050 Specifications:**
+  - 16 Streaming Multiprocessors
+  - 2048 CUDA Cores total
+  - Max 1536 threads/SM
+  - Max 24,576 concurrent threads
+  - Compute Capability 8.6
+end note
+
+gmem -[hidden]down- sm0
+sm0 -[hidden]right- sm1
+sm1 -[hidden]right- sm_dots
+sm_dots -[hidden]right- sm15
+
+@enduml

@@ -1,0 +1,42 @@
+# testing
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+*.pyzw
+*.pyzwz
+
+# pytest
+pytest.ini
+
+# pytest-benchmark
+pytest-benchmark.ini
+.benchmarks
+
+# cache
+__pycache__
+.pytest_cache
+.cache
+
+
+# venv
+venv
+.venv
+
+# env
+.env
+
+# LaTeX auxiliary / build files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.out
+*.run.xml
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
